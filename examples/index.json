@@ -1,0 +1,29 @@
+[
+  {
+    "file": "nominal.json",
+    "label": {
+      "en": "Pause and resume",
+      "pt": "Pausa e retomada"
+    },
+    "expectedStatus": "complete",
+    "report": "nominal.report.json"
+  },
+  {
+    "file": "consent-expiry.json",
+    "label": {
+      "en": "Consent expires",
+      "pt": "Consentimento expirado"
+    },
+    "expectedStatus": "review-notes",
+    "report": "consent-expiry.report.json"
+  },
+  {
+    "file": "operator-stop.json",
+    "label": {
+      "en": "Operator stop",
+      "pt": "Parada solicitada"
+    },
+    "expectedStatus": "review-notes",
+    "report": "operator-stop.report.json"
+  }
+]

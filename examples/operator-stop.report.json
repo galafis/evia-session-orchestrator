@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "analysisVersion": "0.1.0",
+  "projectId": "evia-session-orchestrator",
+  "scenarioId": "operator-stop",
+  "source": "synthetic",
+  "status": "review-notes",
+  "metrics": [
+    {
+      "key": "activeMs",
+      "label": {
+        "en": "Active time",
+        "pt": "Tempo ativo"
+      },
+      "value": 2500,
+      "unit": "ms"
+    },
+    {
+      "key": "accepted",
+      "label": {
+        "en": "Accepted actions",
+        "pt": "Ações aceitas"
+      },
+      "value": 3,
+      "unit": ""
+    },
+    {
+      "key": "rejected",
+      "label": {
+        "en": "Rejected actions",
+        "pt": "Ações rejeitadas"
+      },
+      "value": 1,
+      "unit": ""
+    },
+    {
+      "key": "finalState",
+      "label": {
+        "en": "Final state",
+        "pt": "Estado final"
+      },
+      "value": "stopped",
+      "unit": ""
+    }
+  ],
+  "findings": [
+    {
+      "severity": "warning",
+      "code": "INVALID_TRANSITION",
+      "message": {
+        "en": "Rejected resume in stopped.",
+        "pt": "Ação resume rejeitada no estado stopped."
+      },
+      "atMs": 4000
+    }
+  ],
+  "records": [
+    {
+      "atMs": 0,
+      "action": "consent",
+      "from": "idle",
+      "to": "ready",
+      "accepted": true,
+      "code": "CONSENT",
+      "activeMs": 0
+    },
+    {
+      "atMs": 1000,
+      "action": "start",
+      "from": "ready",
+      "to": "active",
+      "accepted": true,
+      "code": "START",
+      "activeMs": 0
+    },
+    {
+      "atMs": 3500,
+      "action": "stop",
+      "from": "active",
+      "to": "stopped",
+      "accepted": true,
+      "code": "STOP",
+      "activeMs": 2500
+    },
+    {
+      "atMs": 4000,
+      "action": "resume",
+      "from": "stopped",
+      "to": "stopped",
+      "accepted": false,
+      "code": "INVALID_TRANSITION",
+      "activeMs": 2500
+    }
+  ],
+  "finalState": "stopped",
+  "activeMs": 2500,
+  "consentUntil": null,
+  "startedAt": 1000,
+  "endMs": 16000
+}

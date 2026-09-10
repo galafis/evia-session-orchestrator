@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "analysisVersion": "0.1.0",
+  "projectId": "evia-session-orchestrator",
+  "scenarioId": "pause-and-resume",
+  "source": "synthetic",
+  "status": "complete",
+  "metrics": [
+    {
+      "key": "activeMs",
+      "label": {
+        "en": "Active time",
+        "pt": "Tempo ativo"
+      },
+      "value": 8000,
+      "unit": "ms"
+    },
+    {
+      "key": "accepted",
+      "label": {
+        "en": "Accepted actions",
+        "pt": "Ações aceitas"
+      },
+      "value": 5,
+      "unit": ""
+    },
+    {
+      "key": "rejected",
+      "label": {
+        "en": "Rejected actions",
+        "pt": "Ações rejeitadas"
+      },
+      "value": 0,
+      "unit": ""
+    },
+    {
+      "key": "finalState",
+      "label": {
+        "en": "Final state",
+        "pt": "Estado final"
+      },
+      "value": "completed",
+      "unit": ""
+    }
+  ],
+  "findings": [],
+  "records": [
+    {
+      "atMs": 0,
+      "action": "consent",
+      "from": "idle",
+      "to": "ready",
+      "accepted": true,
+      "code": "CONSENT",
+      "activeMs": 0
+    },
+    {
+      "atMs": 1000,
+      "action": "start",
+      "from": "ready",
+      "to": "active",
+      "accepted": true,
+      "code": "START",
+      "activeMs": 0
+    },
+    {
+      "atMs": 4000,
+      "action": "pause",
+      "from": "active",
+      "to": "paused",
+      "accepted": true,
+      "code": "PAUSE",
+      "activeMs": 3000
+    },
+    {
+      "atMs": 7000,
+      "action": "resume",
+      "from": "paused",
+      "to": "active",
+      "accepted": true,
+      "code": "RESUME",
+      "activeMs": 3000
+    },
+    {
+      "atMs": 12000,
+      "action": "activity-complete",
+      "from": "active",
+      "to": "completed",
+      "accepted": true,
+      "code": "ACTIVITY-COMPLETE",
+      "activeMs": 8000
+    }
+  ],
+  "finalState": "completed",
+  "activeMs": 8000,
+  "consentUntil": 30000,
+  "startedAt": 1000,
+  "endMs": 16000
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://galafis.github.io/evia-session-orchestrator/schemas/scenario.schema.json",
+  "title": "evia-session-orchestrator scenario / cenário",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "scenarioId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$"
+    },
+    "source": {
+      "enum": ["synthetic", "manual"]
+    },
+    "consentTtlMs": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3600000
+    },
+    "activityMs": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3600000
+    },
+    "maxSessionMs": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 86400000
+    },
+    "endMs": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 86400000
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "atMs": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 86400000
+          },
+          "action": {
+            "enum": ["consent", "start", "pause", "resume", "finish", "stop", "withdraw"]
+          }
+        },
+        "required": ["atMs", "action"]
+      },
+      "minItems": 0,
+      "maxItems": 10000
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "scenarioId",
+    "source",
+    "consentTtlMs",
+    "activityMs",
+    "maxSessionMs",
+    "endMs",
+    "events"
+  ]
+}

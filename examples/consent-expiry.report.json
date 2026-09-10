@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "analysisVersion": "0.1.0",
+  "projectId": "evia-session-orchestrator",
+  "scenarioId": "consent-expiry",
+  "source": "synthetic",
+  "status": "review-notes",
+  "metrics": [
+    {
+      "key": "activeMs",
+      "label": {
+        "en": "Active time",
+        "pt": "Tempo ativo"
+      },
+      "value": 3000,
+      "unit": "ms"
+    },
+    {
+      "key": "accepted",
+      "label": {
+        "en": "Accepted actions",
+        "pt": "Ações aceitas"
+      },
+      "value": 4,
+      "unit": ""
+    },
+    {
+      "key": "rejected",
+      "label": {
+        "en": "Rejected actions",
+        "pt": "Ações rejeitadas"
+      },
+      "value": 1,
+      "unit": ""
+    },
+    {
+      "key": "finalState",
+      "label": {
+        "en": "Final state",
+        "pt": "Estado final"
+      },
+      "value": "stopped",
+      "unit": ""
+    }
+  ],
+  "findings": [
+    {
+      "severity": "warning",
+      "code": "CONSENT_EXPIRED",
+      "message": {
+        "en": "Consent expired on the virtual clock.",
+        "pt": "O consentimento expirou no relógio virtual."
+      },
+      "atMs": 6000
+    },
+    {
+      "severity": "warning",
+      "code": "INVALID_TRANSITION",
+      "message": {
+        "en": "Rejected resume in stopped.",
+        "pt": "Ação resume rejeitada no estado stopped."
+      },
+      "atMs": 7000
+    }
+  ],
+  "records": [
+    {
+      "atMs": 0,
+      "action": "consent",
+      "from": "idle",
+      "to": "ready",
+      "accepted": true,
+      "code": "CONSENT",
+      "activeMs": 0
+    },
+    {
+      "atMs": 1000,
+      "action": "start",
+      "from": "ready",
+      "to": "active",
+      "accepted": true,
+      "code": "START",
+      "activeMs": 0
+    },
+    {
+      "atMs": 4000,
+      "action": "pause",
+      "from": "active",
+      "to": "paused",
+      "accepted": true,
+      "code": "PAUSE",
+      "activeMs": 3000
+    },
+    {
+      "atMs": 6000,
+      "action": "consent-expired",
+      "from": "paused",
+      "to": "stopped",
+      "accepted": true,
+      "code": "CONSENT-EXPIRED",
+      "activeMs": 3000
+    },
+    {
+      "atMs": 7000,
+      "action": "resume",
+      "from": "stopped",
+      "to": "stopped",
+      "accepted": false,
+      "code": "INVALID_TRANSITION",
+      "activeMs": 3000
+    }
+  ],
+  "finalState": "stopped",
+  "activeMs": 3000,
+  "consentUntil": null,
+  "startedAt": 1000,
+  "endMs": 16000
+}

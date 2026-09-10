@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "pause-and-resume",
+  "source": "synthetic",
+  "consentTtlMs": 30000,
+  "activityMs": 8000,
+  "maxSessionMs": 20000,
+  "endMs": 16000,
+  "events": [
+    {
+      "atMs": 0,
+      "action": "consent"
+    },
+    {
+      "atMs": 1000,
+      "action": "start"
+    },
+    {
+      "atMs": 4000,
+      "action": "pause"
+    },
+    {
+      "atMs": 7000,
+      "action": "resume"
+    }
+  ]
+}
