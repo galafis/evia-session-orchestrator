@@ -7,6 +7,22 @@
 
 [English](#english) · [Português](#portugues) · [Live workbench · Demonstração](https://galafis.github.io/evia-session-orchestrator/) · [Examples · Exemplos](#examples)
 
+<!-- domain-workflow:start -->
+
+## Domain workflow · Fluxo do domínio
+
+```mermaid
+flowchart TD
+  A["Explicit consent events / Eventos explícitos de consentimento"] --> B["Advance virtual clock / Avançar relógio virtual"]
+  B --> C["Evaluate expiry before actions / Avaliar expiração antes das ações"]
+  C --> D["Apply valid transition / Aplicar transição válida"]
+  D --> E["Active and wall time / Tempo ativo e total"]
+  E --> F["Audit record / Registro de auditoria"]
+  D --> G["Terminal stop or completion / Interrupção ou conclusão terminal"]
+```
+
+<!-- domain-workflow:end -->
+
 <a id="english"></a>
 
 ## English
@@ -176,3 +192,5 @@ Projeto público relacionado: [inclusive-session-studio](https://github.com/gala
 
 Independent work; institutional contact does not imply institutional or vendor endorsement.  
 Trabalho independente; o contato institucional não implica endosso de instituição ou fabricante.
+
+[Worked examples with expected metrics · Exemplos comentados com métricas esperadas](docs/EXPERIMENTS.md)

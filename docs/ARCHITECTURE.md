@@ -60,3 +60,15 @@ O navegador lê as importações localmente, limita-as a 1 MB, escapa textos inf
 | `scripts/analyze.mjs` | Command-line adapter · Adaptador de linha de comando                                    |
 | `tests/`              | Behavioral and contract checks · Verificações de comportamento e contrato               |
 | `examples/`           | Synthetic inputs and expected reports · Entradas sintéticas e relatórios esperados      |
+
+## Domain decision flow · Fluxo de decisões do domínio
+
+```mermaid
+flowchart TD
+  A["Explicit consent events / Eventos explícitos de consentimento"] --> B["Advance virtual clock / Avançar relógio virtual"]
+  B --> C["Evaluate expiry before actions / Avaliar expiração antes das ações"]
+  C --> D["Apply valid transition / Aplicar transição válida"]
+  D --> E["Active and wall time / Tempo ativo e total"]
+  E --> F["Audit record / Registro de auditoria"]
+  D --> G["Terminal stop or completion / Interrupção ou conclusão terminal"]
+```
