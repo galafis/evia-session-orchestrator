@@ -1,27 +1,31 @@
 # Évia Session Orchestrator
 
-**Rehearse consent, pauses and recovery before an interaction begins.**  
-**Ensaie consentimento, pausas e retomadas antes de iniciar uma interação.**
+**Session rehearsal · Ensaio de sessões**
 
-[![Checks](https://github.com/galafis/evia-session-orchestrator/actions/workflows/ci.yml/badge.svg)](https://github.com/galafis/evia-session-orchestrator/actions/workflows/ci.yml) · **v0.1.0** · **28 automated tests / testes automatizados** · **MIT**
+<p align="center"><img src="assets/project-overview.svg" width="960" alt="Workflow illustration: Consent and actions → State transitions → Session report"></p>
 
-[English](#english) · [Português](#portugues) · [Live workbench · Demonstração](https://galafis.github.io/evia-session-orchestrator/) · [Examples · Exemplos](#examples)
+[![Checks](https://github.com/galafis/evia-session-orchestrator/actions/workflows/ci.yml/badge.svg)](https://github.com/galafis/evia-session-orchestrator/actions/workflows/ci.yml)
+[English](#english) · [Português](#portugues) · [Guided tour / Visita guiada](docs/SHOWCASE.md) · [Validation / Validação](docs/VALIDATION.md)
 
-<!-- domain-workflow:start -->
+> **EN:** How do consent expiry and an operator stop affect active time?<br>
+> **PT:** Como expiração de consentimento e parada afetam o tempo ativo?
 
-## Domain workflow · Fluxo do domínio
+## Start here · Comece aqui
 
-```mermaid
-flowchart TD
-  A["Explicit consent events / Eventos explícitos de consentimento"] --> B["Advance virtual clock / Avançar relógio virtual"]
-  B --> C["Evaluate expiry before actions / Avaliar expiração antes das ações"]
-  C --> D["Apply valid transition / Aplicar transição válida"]
-  D --> E["Active and wall time / Tempo ativo e total"]
-  E --> F["Audit record / Registro de auditoria"]
-  D --> G["Terminal stop or completion / Interrupção ou conclusão terminal"]
-```
+| Goal · Objetivo | Where to go · Por onde começar |
+| --- | --- |
+| Understand a real example · Entender um exemplo concreto | [Walkthrough / Roteiro](docs/EXPERIMENTS.md) |
+| Reproduce and compare · Reproduzir e comparar | [Evidence tour / Visita às evidências](docs/SHOWCASE.md) |
+| Inspect the checks · Inspecionar as verificações | [Validation record / Registro de validação](docs/VALIDATION.md) · [CI](https://github.com/galafis/evia-session-orchestrator/actions/workflows/ci.yml) |
+| Explore in the browser · Explorar no navegador | [Public demonstration / Demonstração pública](https://galafis.github.io/evia-session-orchestrator/) |
 
-<!-- domain-workflow:end -->
+**Example result · Resultado do exemplo:** Active time / Tempo ativo: **3000 ms**; Accepted actions / AÃ§Ãµes aceitas: **4 **; Rejected actions / AÃ§Ãµes rejeitadas: **1 **
+
+**Try a comparison · Experimente uma comparação**<br>
+**EN:** Compare pause/resume, expired consent and operator stop; retain rejected actions in the report.<br>
+**PT:** Compare pausa e retomada, consentimento expirado e parada; mantenha ações rejeitadas no relatório.
+
+[![Existing application preview / Prévia existente da aplicação](assets/preview-en.svg)](https://galafis.github.io/evia-session-orchestrator/)
 
 <a id="english"></a>
 
@@ -187,10 +191,10 @@ Projeto público relacionado: [inclusive-session-studio](https://github.com/gala
 
 ## Maintainer · Responsável
 
-**Gabriel Demetrios Lafis** · Brazil / Brasil  
+**Gabriel Demetrios Lafis** · Brazil / Brasil<br>
 **[gabrieldemetrioslafis@usp.br](mailto:gabrieldemetrioslafis@usp.br)** · [GitHub](https://github.com/galafis)
 
-Independent work; institutional contact does not imply institutional or vendor endorsement.  
+Independent work; institutional contact does not imply institutional or vendor endorsement.<br>
 Trabalho independente; o contato institucional não implica endosso de instituição ou fabricante.
 
 [Worked examples with expected metrics · Exemplos comentados com métricas esperadas](docs/EXPERIMENTS.md)
